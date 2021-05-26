@@ -19,7 +19,8 @@ pub fn build(b: *std.build.Builder) void {
     // qemu-system-aarch64 -M raspi3 -serial stdio -kernel zig-cache/bin/kernel8.img
 
     exe.addAssemblyFile("src/boot.s");
-    inline for (.{ "src/fb.c", "src/io.c", "src/main.c", "src/mb.c" }) |src| {
+    exe.addIncludeDir("src");
+    inline for (.{ "src/fb.c", "src/io.c", "src/mb.c" }) |src| {
         exe.addCSourceFile(src, &.{});
     }
 

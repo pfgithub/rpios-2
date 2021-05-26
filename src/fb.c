@@ -156,7 +156,7 @@ void drawChar(unsigned char ch, int x, int y, unsigned char attr)
     }
 }
 
-void drawString(int x, int y, char *s, unsigned char attr)
+void drawString(int x, int y, const char *s, unsigned char attr)
 {
     while (*s) {
        if (*s == '\r') {
